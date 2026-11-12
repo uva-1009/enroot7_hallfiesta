@@ -2,10 +2,9 @@ module.exports = {
   content: ["./app/**/*.{js,jsx}", "./data/**/*.js"],
   theme: {
     extend: {
-      colors: { pine: "#1F3A3D", mist: "#E6EFEC", foam: "#8CC7B5", dusk: "#A9B4E8", sun: "#F2D98B", paper: "#F7FAF9" },
-      fontFamily: { display: ["var(--font-display)", "sans-serif"], body: ["var(--font-body)", "sans-serif"] },
-      keyframes: { breathe: { "0%,100%": { transform: "scale(.72)" }, "50%": { transform: "scale(1)" } } },
-      animation: { breathe: "breathe 10s ease-in-out infinite" },
+      // Vintage circus-poster palette: faded red, mustard, teal, cream, warm black
+      colors: { ink: "#231815", bubble: "#B3202A", teal: "#4F9D96", mustard: "#E3A93B", grape: "#2C4A68", bone: "#F4E8C8", rust: "#7A3418" },
+      fontFamily: { display: ["var(--font-display)", "serif"], slab: ["var(--font-slab)", "serif"], type: ["var(--font-type)", "monospace"], body: ["var(--font-body)", "sans-serif"] },
     },
   },
   plugins: [],

@@ -7,6 +7,7 @@ npm install
 npm run dev   # http://localhost:3000
 ```
 
-- `data/stations.js`: edit stations, rules and safety notes here
-- `app/Stations.js`: station browser and digital activity card (stamps saved in localStorage)
-- `app/Breather.js`: hero breathing animation
+- `data/booths.js`: booth text, rules and the facilitator stamp codes (CHANGE THE CODES before the event)
+- `app/Hall.js`: page, booth dialog, stamp and badge logic (saved in localStorage)
+- `app/Scene.js`: the animated SVG scene for each booth; timings are in `app/globals.css`
+- `app/Mascot.js`: hero character whose eyes follow the cursor
