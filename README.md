@@ -2,8 +2,8 @@
 
 Event site and Telegram bot for **Hall Fiesta**, the EnROOT 7 carnival for SUTD Term 1 freshmen. Teams play three booths, collect a stamp at each, fill a photo film strip, and earn a badge plus an extra drink. A companion Telegram bot sends reminders, shows live queue times on the night, and collects feedback afterwards.
 
-**Live site:** https://enroot7-hallwars.vercel.app
-**Repo:** https://github.com/uva1009/enroot7_hallwars
+**Live site:** https://enroot7-hallfiesta.vercel.app
+**Repo:** https://github.com/uva1009/enroot7_hallfiesta
 
 <!-- TODO: add team name / group number and members -->
 
