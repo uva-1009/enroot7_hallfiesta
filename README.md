@@ -2,8 +2,8 @@
 
 Event site and Telegram bot for **Hall Fiesta**, the EnROOT 7 carnival for SUTD Term 1 freshmen. Teams play three booths, collect a stamp at each, fill a photo film strip, and earn a badge plus an extra drink. A companion Telegram bot sends reminders, shows live queue times on the night, and collects feedback afterwards.
 
-**Live site:** https://enroot7-hallfiesta.vercel.app
-**Repo:** https://github.com/uva1009/enroot7_hallfiesta
+**Live site:** https://enroot7-hallwars.vercel.app
+**Repo:** https://github.com/uva1009/enroot7_hallwars
 
 <!-- TODO: add team name / group number and members -->
 
@@ -42,16 +42,21 @@ Event site and Telegram bot for **Hall Fiesta**, the EnROOT 7 carnival for SUTD 
 
 ### Website
 
-- **One QR for everything (`/links`).** A link-tree page with Register, Event site, Add to calendar and Telegram buttons. The poster QR opens it, and the same QR is shown on the info board on larger screens as "Share Hall Fiesta".
-- **Event info board.** A marquee countdown to 7pm, the date, time and venue, and buttons to register, add the event to Google Calendar or Apple/Outlook (`/calendar` serves an `.ics` file with a 1-hour reminder), and get directions.
-- **Booth tickets.** Each booth is an "ADMIT ONE" ticket with a looping animation of the game. Tapping it opens the rules, team tips and safety notes.
-- **Stamps, checked on the server.** After playing, the facilitator gives the team that booth's code, and typing it in collects the stamp. Codes are checked by `/api/stamp` against the database, so they never appear in the site's code or this repo.
-- **Live queue times.** During the event, each ticket and the floor map show the current wait at that booth ("No wait", "~5 min", "10+ min", "Closed"), updated every 30 seconds.
-- **Floor map.** The Multi-Purpose Hall layout, redrawn from the team's sketch. Tapping a booth zone opens its rules.
-- **Run of show and FAQ.** A timeline of the evening and expandable answers to common questions.
-- **Photo film strip.** Each frame of the strip opens the phone camera. Once all three photos are in, the strip can be saved as an image, or as a 1080 x 1920 **Instagram story** version on a sunburst background.
-- **Badge and drink.** All three stamps unlock a "Hall Fiesta Legend" badge with confetti and the extra-drink redemption.
-- **Telegram links.** Buttons that open the bot, and one that jumps straight into the feedback questions.
+The site is split into six separate pages. Each page shows only its own section. A shared header has the page links and the stamp count; on phones, the links sit in a swipeable row under the logo.
+
+| Page | What's on it |
+|---|---|
+| `/` Intro | The poster hero, a marquee countdown to 7pm, date, time and venue, Register, Add to Google Calendar, Apple/Outlook calendar (`/calendar` serves an `.ics` with a 1-hour reminder), Directions, Telegram bot, and the "Share Hall Fiesta" QR on larger screens |
+| `/booths` | The three booth tickets with looping animations. Tapping one opens its rules, tips, safety notes and the stamp-code form. `/booths?b=nerf` opens a booth directly |
+| `/map` | The Multi-Purpose Hall floor plan, redrawn from the team's sketch. Tapping a booth opens its rules right there. On phones the map scrolls sideways so the labels stay readable |
+| `/schedule` | The run of show as a timeline |
+| `/faq` | Expandable answers to common questions |
+| `/reel` | The photo film strip, saving it (or a 1080 x 1920 Instagram story version), the badge and extra drink |
+
+- **Stamps, checked on the server.** After playing, the facilitator gives the team the booth's code, and typing it in collects the stamp. Codes are checked by `/api/stamp` against the database, so they never appear in the site's code or this repo.
+- **Shared progress.** Stamps and photos are saved on the phone and shared by every page, so a stamp collected on `/booths` immediately updates the header and `/reel`.
+- **Live queue times.** During the event, each ticket and the floor map show the current wait at that booth, updated every 30 seconds.
+- **One QR for everything (`/links`).** A link-tree page with Register, Event site, Booths, Floor map, calendar and Telegram buttons. The poster QR opens it.
 
 ### Facilitator page (`/staff`)
 
@@ -99,10 +104,18 @@ Protected by a PIN. Built for a phone held at a booth:
 
 ```
 app/
-  page.js              Builds the joint QR, renders <Hall />
-  Hall.js              Main page: hero, booths, dialog, stamping, photos, badge
-  EventInfo.js         Countdown, details, register/calendar/directions buttons
+  (site)/              The six public pages (the folder name doesn't appear in URLs)
+    layout.js          Shared background and header
+    page.js            / Intro (builds the joint QR)
+    booths/ map/ schedule/ faq/ reel/   One folder per page
+  SiteNav.js           Header with page links and stamp count
+  progress.js          Shared stamps, photos, queue polling and camera picker
+  Booths.js            /booths content
+  BoothDialog.js       Booth pop-up (rules + stamp form), used on /booths and /map
+  MapView.js           /map content
   FloorMap.js          SVG floor plan with tappable booth zones and queue badges
+  FilmStrip.js         /reel content
+  EventInfo.js         Countdown, details, register/calendar/directions buttons
   Schedule.js          Run of show and FAQ
   Story.js             Instagram story export (1080 x 1920)
   Reel.js              Canvas drawing of the film strip
@@ -118,6 +131,7 @@ app/
   api/cron/reminder    Event-day reminder
 data/
   event.js             Date, venue, links, run of show, FAQ
+  pages.js             The list of pages and their order (used by the header)
   booths.js            Booth text, rules, colours (no codes)
 lib/
   db.js                All database reads and writes (server only)
@@ -266,7 +280,8 @@ Before release, every API route and the whole bot conversation were run against 
 6. **Mascot.** Replaced the ringmaster with a clown in the style of old amusement-park posters.
 7. **Deploy.** GitHub repo, Vercel deployment.
 8. **Event features.** Added the countdown, calendar, directions, floor map from the team's sketch, run of show and FAQ. A single "link tree" QR (`/links`) replaced separate QR codes for the form and the site. The floor map was redrawn when the hall layout changed.
-9. **Backend and bot.** Moved stamp codes to Supabase, added the facilitator page and live queue times, built the Telegram bot with reminders and feedback, and the Instagram story export. Upgraded to Next.js 16 for security fixes.
+9. **Separate pages.** Split the single long page into six pages (intro, booths, floor map, run of show, FAQ, film strip), each showing only its own section, with a shared header for moving between them.
+10. **Backend and bot.** Moved stamp codes to Supabase, added the facilitator page and live queue times, built the Telegram bot with reminders and feedback, and the Instagram story export. Upgraded to Next.js 16 for security fixes.
 
 ### AI usage
 

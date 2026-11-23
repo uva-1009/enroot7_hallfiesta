@@ -24,7 +24,7 @@ export const event = {
   linksUrl: "https://enroot7-hallwars.vercel.app/links", // the one QR on posters points here
 
   schedule: [
-    { time: "6:30pm", title: "Registration and team assembly", detail: "Check in at the registration table and get into your team of five." },
+    { time: "7:00pm", title: "Registration and team assembly", detail: "Check in at the registration table and get into your team of five." },
     { time: "7:10pm", title: "Opening", detail: "A welcome from Area Management and what tonight is about." },
     { time: "7:15pm", title: "Safety briefing", detail: "Venue safety, emergency exits and the rules for each booth. Everyone attends before playing." },
     { time: "7:25pm", title: "Booths open", detail: "Play Nerf Cup Knockdown, Pasta Tower Challenge and Ball Transfer in any order." },

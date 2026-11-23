@@ -7,7 +7,7 @@ const type = Special_Elite({ weight: "400", subsets: ["latin"], variable: "--fon
 const body = Archivo({ subsets: ["latin"], variable: "--font-body" });
 
 export const metadata = {
-  title: "Hall Fiesta | EnROOT 7",
+  title: "Hall Wars | EnROOT 7",
   description: "Play the three booths, collect your stamps, earn the badge and an extra drink.",
 };
 

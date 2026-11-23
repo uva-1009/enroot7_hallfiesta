@@ -3,7 +3,7 @@ import { event } from "../data/event";
 export function RunOfShow() {
   return (
     <section id="schedule" className="mx-auto max-w-3xl scroll-mt-20 px-5 py-14">
-      <h2 className="label text-3xl sm:text-4xl">Run of show</h2>
+      <h1 className="label text-3xl sm:text-4xl">Run of show</h1>
       <ol className="poster paper mt-8 p-6 text-ink sm:p-8">
         {event.schedule.map((s, i) => (
           <li key={s.time} className="relative grid grid-cols-[5.5rem_1fr] gap-4 pb-6 last:pb-0 sm:grid-cols-[7rem_1fr]">
@@ -24,7 +24,7 @@ export function RunOfShow() {
 export function Faq() {
   return (
     <section id="faq" className="mx-auto max-w-3xl scroll-mt-20 px-5 py-14">
-      <h2 className="label text-3xl sm:text-4xl">Questions</h2>
+      <h1 className="label text-3xl sm:text-4xl">Questions</h1>
       <div className="mt-8 space-y-3">
         {event.faq.map((f) => (
           <details key={f.q} className="faq group rounded-xl border-4 border-ink bg-bone text-ink shadow-[5px_5px_0_#231815]">

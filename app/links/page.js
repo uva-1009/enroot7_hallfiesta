@@ -34,7 +34,9 @@ export default function Links() {
 
         <nav className="mt-7 space-y-4 text-left" aria-label="Hall Fiesta links">
           <LinkButton primary href={event.registerUrl} title="Register" sub="Sign up for Hall Fiesta (registration form)" />
-          <LinkButton href="/" external={false} title="Event site" sub="Booths, rules, floor map, stamps and your film reel" />
+          <LinkButton href="/" external={false} title="Event site" sub="Countdown, booths, floor map, run of show and FAQ" />
+          <LinkButton href="/booths" external={false} title="Booths and stamps" sub="The three games and where you collect stamps" />
+          <LinkButton href="/map" external={false} title="Floor map" sub={`${event.venue}, ${event.venueDetail}`} />
           <LinkButton href={googleCalUrl()} title="Add to Google Calendar" sub={`${event.dateLabel}, ${event.timeLabel}`} />
           <LinkButton href="/calendar" external={false} title="Add to Apple or Outlook" sub="Downloads a calendar file with a 1-hour reminder" />
           {BOT && <LinkButton href={`https://t.me/${BOT}`} title="Hall Fiesta on Telegram" sub="Reminders, live queue times and feedback" />}

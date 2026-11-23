@@ -188,7 +188,7 @@ export default function Staff({ linksQr, siteQr, registerQr }) {
 
           <Panel title="QR codes for posters">
             <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-              {[["All links (use this on posters)", event.linksUrl, linksQr, "hall-wars-qr.svg"], ["This website only", event.siteUrl, siteQr, "hall-wars-site-qr.svg"], ["Registration form only", event.registerUrl, registerQr, "hall-wars-register-qr.svg"]].map(([label, url, svg, file]) => (
+              {[["All links (use this on posters)", event.linksUrl, linksQr, "hall-fiesta-qr.svg"], ["This website only", event.siteUrl, siteQr, "hall-fiesta-site-qr.svg"], ["Registration form only", event.registerUrl, registerQr, "hall-fiesta-register-qr.svg"]].map(([label, url, svg, file]) => (
                 <figure key={file} className="flex items-center gap-4">
                   <div className="relative z-[61] w-32 shrink-0 rounded-lg border-[3px] border-ink bg-white p-1 [&_svg]:h-auto [&_svg]:w-full" dangerouslySetInnerHTML={{ __html: svg }} />
                   <figcaption className="min-w-0">

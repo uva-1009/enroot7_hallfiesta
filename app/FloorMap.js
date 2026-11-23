@@ -9,9 +9,8 @@ const color = Object.fromEntries(booths.map((b) => [b.id, b.color]));
 const Table = ({ x, y, w, h }) => <rect x={x} y={y} width={w} height={h} rx="3" fill={WOOD} stroke={INK} strokeWidth="3" />;
 const Chair = ({ x, y }) => <rect x={x} y={y} width="14" height="14" rx="2" fill={DARKWOOD} stroke={INK} strokeWidth="2.5" />;
 const People = ({ pts }) => pts.map(([x, y], i) => <circle key={i} cx={x} cy={y} r="11" fill={CREAM} stroke={INK} strokeWidth="2.5" />);
-// Coordinates are rounded so server (Node) and browser trig output stringify identically (avoids hydration mismatch).
 const ring = (cx, cy, n, r, start = -90) =>
-  Array.from({ length: n }, (_, i) => { const a = ((start + (360 / n) * i) * Math.PI) / 180; return [Math.round((cx + Math.cos(a) * r) * 100) / 100, Math.round((cy + Math.sin(a) * r) * 100) / 100]; });
+  Array.from({ length: n }, (_, i) => { const a = ((start + (360 / n) * i) * Math.PI) / 180; return [cx + Math.cos(a) * r, cy + Math.sin(a) * r]; });
 
 function Plate({ cx, cy, lines, fill, size = 34, queue }) {
   const w = Math.max(...lines.map((l) => l.length)) * size * 0.62 + 36;

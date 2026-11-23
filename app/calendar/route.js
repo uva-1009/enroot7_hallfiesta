@@ -14,7 +14,7 @@ export function GET() {
     "CALSCALE:GREGORIAN",
     "METHOD:PUBLISH",
     "BEGIN:VEVENT",
-    "UID:hall-wars-2026@enroot7-hallwars.vercel.app",
+    "UID:hall-fiesta-2026@enroot7-hallwars.vercel.app",
     `DTSTAMP:${utc("2026-11-18T00:00:00Z")}`,
     `DTSTART:${utc(event.start)}`,
     `DTEND:${utc(event.end)}`,
@@ -34,7 +34,7 @@ export function GET() {
   return new Response(ics, {
     headers: {
       "Content-Type": "text/calendar; charset=utf-8",
-      "Content-Disposition": 'attachment; filename="hall-wars.ics"',
+      "Content-Disposition": 'attachment; filename="hall-fiesta.ics"',
     },
   });
 }

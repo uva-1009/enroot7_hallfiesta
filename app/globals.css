@@ -38,6 +38,9 @@ body::before { content: ""; position: fixed; inset: 0; pointer-events: none; z-i
   .marquee { border-style: dotted; border-width: 8px; animation: chase 1s steps(1) infinite; }
   .pill { @apply inline-block rounded-full border-4 border-ink bg-bone px-5 py-2 font-semibold text-ink transition hover:-translate-y-0.5 active:translate-x-[3px] active:translate-y-[3px]; box-shadow: 4px 4px 0 #231815; }
   .pill:active { box-shadow: 1px 1px 0 #231815; }
+  .no-scrollbar { scrollbar-width: none; }
+  .no-scrollbar::-webkit-scrollbar { display: none; }
+  .fade-edges { -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 12px, #000 calc(100% - 28px), transparent); mask-image: linear-gradient(90deg, transparent 0, #000 12px, #000 calc(100% - 28px), transparent); }
   .btn:disabled, .pill:disabled { opacity: .6; cursor: progress; }
   .faq summary::-webkit-details-marker { display: none; }
   .zone { cursor: pointer; outline: none; }

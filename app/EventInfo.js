@@ -4,6 +4,8 @@ import { event } from "../data/event";
 import { START, END, parts } from "../lib/time";
 import { googleCalUrl } from "../lib/calendar";
 
+const BOT = process.env.NEXT_PUBLIC_BOT_USERNAME || "";
+
 function Countdown() {
   // Render nothing until mounted so the server and browser clocks never disagree.
   const [now, setNow] = useState(null);
@@ -31,9 +33,9 @@ function Countdown() {
   );
 }
 
-export default function EventInfo() {
+export default function EventInfo({ shareQr }) {
   return (
-    <section id="info" className="mx-auto max-w-5xl scroll-mt-20 px-5 pb-16">
+    <section id="info" className="mx-auto max-w-5xl scroll-mt-20 px-5">
       <div className="overflow-hidden rounded-[1.25rem] border-4 border-ink bg-ink shadow-[8px_8px_0_#231815]">
         <div className="bulbs" />
         <div className="px-4 py-6 text-center sm:px-8">
@@ -58,17 +60,18 @@ export default function EventInfo() {
             <a href={googleCalUrl()} target="_blank" rel="noopener noreferrer" className="pill">Add to Google Calendar</a>
             <a href="/calendar" className="pill">Apple / Outlook calendar</a>
             <a href={event.mapsUrl} target="_blank" rel="noopener noreferrer" className="pill">Directions</a>
+            {BOT && <a href={`https://t.me/${BOT}`} target="_blank" rel="noopener noreferrer" className="pill">Telegram bot</a>}
           </div>
         </div>
-        <figure className="hidden w-44 text-center md:block">
-          <div className="rounded-lg border-4 border-ink bg-white p-2">
-            <img src="/share-qr.png" alt="QR code to register and open the event site" className="block h-auto w-full" />
-          </div>
-          <figcaption className="mt-2 leading-tight">
-            <span className="block font-slab text-sm">SHARE HALL FIESTA</span>
-            <span className="block font-type text-xs">Registration + event site in one scan</span>
-          </figcaption>
-        </figure>
+        {shareQr && (
+          <figure className="hidden w-44 text-center md:block">
+            <div className="relative z-[61] rounded-lg border-4 border-ink bg-white p-2 [&_svg]:h-auto [&_svg]:w-full" dangerouslySetInnerHTML={{ __html: shareQr }} />
+            <figcaption className="mt-2 leading-tight">
+              <span className="block font-slab text-sm">SHARE HALL FIESTA</span>
+              <span className="block font-type text-xs">Registration + event site in one scan</span>
+            </figcaption>
+          </figure>
+        )}
       </div>
     </section>
   );

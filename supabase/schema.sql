@@ -1,4 +1,4 @@
--- Hall Wars database. Paste this whole file into Supabase > SQL Editor > New query, then Run. Safe to run once.
+-- Hall Fiesta database. Paste this whole file into Supabase > SQL Editor > New query, then Run. Safe to run once.
 -- Row Level Security is on with no policies, so the browser (anon key) can read nothing.
 -- Only the site's server routes, using the service role key, can read or write.
 

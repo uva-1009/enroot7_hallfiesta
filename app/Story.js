@@ -31,8 +31,8 @@ export async function drawStory(booths, photos) {
   // Title
   g.textAlign = "center"; g.textBaseline = "alphabetic";
   g.font = `112px ${disp}`;
-  g.lineJoin = "round"; g.lineWidth = 18; g.strokeStyle = "#231815"; g.strokeText(event.name.toUpperCase(), cx, 336);
-  g.fillStyle = "#F4E8C8"; g.fillText(event.name.toUpperCase(), cx, 336);
+  g.lineJoin = "round"; g.lineWidth = 18; g.strokeStyle = "#231815"; g.strokeText(event.name.toUpperCase(), cx, 336, 960);
+  g.fillStyle = "#F4E8C8"; g.fillText(event.name.toUpperCase(), cx, 336, 960);
 
   // Strip, slightly tilted, with a hard shadow
   const h = 1180, w = (CW / CH) * h;
