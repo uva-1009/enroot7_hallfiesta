@@ -36,6 +36,14 @@ body::before { content: ""; position: fixed; inset: 0; pointer-events: none; z-i
   .film::before, .film::after { content: ""; position: absolute; left: 6px; right: 6px; height: 14px; background: repeating-linear-gradient(90deg, #F4E8C8 0 12px, transparent 12px 26px); border-radius: 2px; }
   .film::before { top: 9px; } .film::after { bottom: 9px; }
   .marquee { border-style: dotted; border-width: 8px; animation: chase 1s steps(1) infinite; }
+  .pill { @apply inline-block rounded-full border-4 border-ink bg-bone px-5 py-2 font-semibold text-ink transition hover:-translate-y-0.5 active:translate-x-[3px] active:translate-y-[3px]; box-shadow: 4px 4px 0 #231815; }
+  .pill:active { box-shadow: 1px 1px 0 #231815; }
+  .btn:disabled, .pill:disabled { opacity: .6; cursor: progress; }
+  .faq summary::-webkit-details-marker { display: none; }
+  .zone { cursor: pointer; outline: none; }
+  .zone .zfill { transition: opacity .15s; }
+  .zone:hover .zfill, .zone:focus-visible .zfill { opacity: .6; }
+  .zone:focus-visible .zfill { stroke: #231815; stroke-width: 6; }
 }
 
 /* ---------- booth animations (SVG scenes) ---------- */

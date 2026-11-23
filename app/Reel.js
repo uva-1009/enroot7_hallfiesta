@@ -55,7 +55,7 @@ function sign(g, disp) {
   for (let x = -116; x <= 116; x += 17) for (const y of [-30, 30]) { g.beginPath(); g.arc(x, y, 3.6, 0, 7); g.fill(); }
   for (const y of [-14, 0, 14]) for (const x of [-119, 119]) { g.beginPath(); g.arc(x, y, 3.6, 0, 7); g.fill(); }
   rr(g, -104, -21, 208, 42, 5); g.fillStyle = CREAM; g.fill(); g.strokeStyle = GOLD; g.lineWidth = 2; g.stroke();
-  g.fillStyle = RED; g.font = `25px ${disp}`; g.textAlign = "center"; g.textBaseline = "middle"; g.fillText("HALL WARS", 0, 2);
+  g.fillStyle = RED; g.font = `25px ${disp}`; g.textAlign = "center"; g.textBaseline = "middle"; g.fillText("HALL FIESTA", 0, 2);
   g.restore();
 }
 
