@@ -11,6 +11,20 @@ body::before { content: ""; position: fixed; inset: 0; pointer-events: none; z-i
   background: radial-gradient(ellipse at 50% 38%, transparent 35%, rgba(35,24,21,.6) 100%),
     repeating-conic-gradient(from 0deg at 50% 38%, #B3202A 0 6deg, #EBDDB8 6deg 12deg); }
 
+/* One background per page, so each page feels like its own place. */
+.pagebg { position: fixed; inset: 0; z-index: -10; pointer-events: none; }
+.pagebg-sunburst { background: radial-gradient(ellipse at 50% 38%, transparent 35%, rgba(35,24,21,.6) 100%), repeating-conic-gradient(from 0deg at 50% 38%, #B3202A 0 6deg, #EBDDB8 6deg 12deg); }
+.pagebg-harlequin { background: radial-gradient(ellipse at 50% 30%, transparent 40%, rgba(20,12,10,.55) 100%), url(/harlequin.svg) #F6EBC9; background-size: 100% 100%, 160px 160px; }
+.pagebg-blueprint { background: radial-gradient(ellipse at 50% 30%, transparent 40%, rgba(20,12,10,.55) 100%),
+  linear-gradient(rgba(244,232,200,.16) 2px, transparent 2px) 0 0 / 120px 120px,
+  linear-gradient(90deg, rgba(244,232,200,.16) 2px, transparent 2px) 0 0 / 120px 120px,
+  linear-gradient(rgba(244,232,200,.07) 1px, transparent 1px) 0 0 / 24px 24px,
+  linear-gradient(90deg, rgba(244,232,200,.07) 1px, transparent 1px) 0 0 / 24px 24px, #2C4A68; }
+.pagebg-curtain { background: radial-gradient(ellipse at 50% 0%, rgba(255,214,140,.35), transparent 55%), radial-gradient(ellipse at 50% 30%, transparent 40%, rgba(20,12,10,.55) 100%),
+  repeating-linear-gradient(90deg, #7A1820 0 22px, #8E1D24 22px 34px, #6A141B 34px 48px, #8E1D24 48px 60px); }
+.pagebg-polka { background: radial-gradient(ellipse at 50% 30%, transparent 40%, rgba(20,12,10,.55) 100%), radial-gradient(#F4E8C8 22%, transparent 24%) 0 0 / 44px 44px, radial-gradient(#F4E8C8 22%, transparent 24%) 22px 22px / 44px 44px, #4F9D96; }
+.pagebg-cinema { background: radial-gradient(ellipse at 50% 20%, rgba(227,169,59,.35), transparent 60%), repeating-linear-gradient(0deg, rgba(255,255,255,.025) 0 2px, transparent 2px 4px), #1E1513; }
+
 @layer components {
   .panel { border: 4px solid #231815; box-shadow: 6px 6px 0 #231815; border-radius: 1.25rem; }
   .btn { @apply font-display rounded-full border-4 border-ink px-6 py-2 text-lg text-ink transition active:translate-x-[3px] active:translate-y-[3px]; background-image: linear-gradient(180deg, #F2C063, #E3A93B); box-shadow: 4px 4px 0 #231815; }

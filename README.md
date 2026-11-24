@@ -42,11 +42,11 @@ Event site and Telegram bot for **Hall Fiesta**, the EnROOT 7 carnival for SUTD 
 
 ### Website
 
-The site is split into six separate pages. Each page shows only its own section. A shared header has the page links and the stamp count; on phones, the links sit in a swipeable row under the logo.
+The site is six separate pages. The home page is the menu: it has the countdown and registration, then a "Step inside" list of big buttons, one per page. Each button loads a completely new page with its own background (harlequin, blueprint, curtain, polka dots or cinema) and only that page's content. There is no shared menu bar; each page has a "Back to home" button and the stamp count at the top.
 
 | Page | What's on it |
 |---|---|
-| `/` Intro | The poster hero, a marquee countdown to 7pm, date, time and venue, Register, Add to Google Calendar, Apple/Outlook calendar (`/calendar` serves an `.ics` with a 1-hour reminder), Directions, Telegram bot, and the "Share Hall Fiesta" QR on larger screens |
+| `/` Home | The poster hero, a marquee countdown to 7pm, date, time and venue, Register, Add to Google Calendar, Apple/Outlook calendar (`/calendar` serves an `.ics` with a 1-hour reminder), Directions, Telegram bot, the "Share Hall Fiesta" QR on larger screens, and the menu of pages |
 | `/booths` | The three booth tickets with looping animations. Tapping one opens its rules, tips, safety notes and the stamp-code form. `/booths?b=nerf` opens a booth directly |
 | `/map` | The Multi-Purpose Hall floor plan, redrawn from the team's sketch. Tapping a booth opens its rules right there. On phones the map scrolls sideways so the labels stay readable |
 | `/schedule` | The run of show as a timeline |
@@ -105,10 +105,12 @@ Protected by a PIN. Built for a phone held at a booth:
 ```
 app/
   (site)/              The six public pages (the folder name doesn't appear in URLs)
-    layout.js          Shared background and header
-    page.js            / Intro (builds the joint QR)
+    layout.js          Adds the "Back to home" bar to every page except home
+    page.js            / Home (builds the joint QR, shows the menu)
     booths/ map/ schedule/ faq/ reel/   One folder per page
-  SiteNav.js           Header with page links and stamp count
+  HomeMenu.js          The home page menu of pages
+  BackHome.js          "Back to home" button and stamp count
+  PageBg.js            Each page's full-screen background
   progress.js          Shared stamps, photos, queue polling and camera picker
   Booths.js            /booths content
   BoothDialog.js       Booth pop-up (rules + stamp form), used on /booths and /map
@@ -131,7 +133,7 @@ app/
   api/cron/reminder    Event-day reminder
 data/
   event.js             Date, venue, links, run of show, FAQ
-  pages.js             The list of pages and their order (used by the header)
+  pages.js             The list of pages, their order and descriptions (used by the home menu)
   booths.js            Booth text, rules, colours (no codes)
 lib/
   db.js                All database reads and writes (server only)
@@ -280,7 +282,7 @@ Before release, every API route and the whole bot conversation were run against 
 6. **Mascot.** Replaced the ringmaster with a clown in the style of old amusement-park posters.
 7. **Deploy.** GitHub repo, Vercel deployment.
 8. **Event features.** Added the countdown, calendar, directions, floor map from the team's sketch, run of show and FAQ. A single "link tree" QR (`/links`) replaced separate QR codes for the form and the site. The floor map was redrawn when the hall layout changed.
-9. **Separate pages.** Split the single long page into six pages (intro, booths, floor map, run of show, FAQ, film strip), each showing only its own section, with a shared header for moving between them.
+9. **Separate pages.** Split the single long page into six pages (intro, booths, floor map, run of show, FAQ, film strip), each a completely separate page with its own background. The home page acts as the menu, and every page has a "Back to home" button. Links are plain page loads rather than in-app navigation, so each click opens a new page.
 10. **Backend and bot.** Moved stamp codes to Supabase, added the facilitator page and live queue times, built the Telegram bot with reminders and feedback, and the Instagram story export. Upgraded to Next.js 16 for security fixes.
 
 ### AI usage

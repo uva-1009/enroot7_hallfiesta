@@ -21,7 +21,7 @@ export default function Booths() {
   const b = booths.find((x) => x.id === open);
 
   return (
-    <div className="island mt-10 pb-16 pt-14">
+    <div className="pb-16 pt-6">
       {input}
       <section className="mx-auto max-w-5xl px-5 py-8">
         <h1 className="label text-3xl sm:text-4xl">Step right up</h1>

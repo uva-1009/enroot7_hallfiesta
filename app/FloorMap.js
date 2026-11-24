@@ -10,7 +10,7 @@ const Table = ({ x, y, w, h }) => <rect x={x} y={y} width={w} height={h} rx="3" 
 const Chair = ({ x, y }) => <rect x={x} y={y} width="14" height="14" rx="2" fill={DARKWOOD} stroke={INK} strokeWidth="2.5" />;
 const People = ({ pts }) => pts.map(([x, y], i) => <circle key={i} cx={x} cy={y} r="11" fill={CREAM} stroke={INK} strokeWidth="2.5" />);
 const ring = (cx, cy, n, r, start = -90) =>
-  Array.from({ length: n }, (_, i) => { const a = ((start + (360 / n) * i) * Math.PI) / 180; return [cx + Math.cos(a) * r, cy + Math.sin(a) * r]; });
+  Array.from({ length: n }, (_, i) => { const a = ((start + (360 / n) * i) * Math.PI) / 180; return [Math.round((cx + Math.cos(a) * r) * 100) / 100, Math.round((cy + Math.sin(a) * r) * 100) / 100]; });
 
 function Plate({ cx, cy, lines, fill, size = 34, queue }) {
   const w = Math.max(...lines.map((l) => l.length)) * size * 0.62 + 36;
@@ -86,7 +86,7 @@ export default function FloorMap({ onPick, queue = {}, showQueue = false }) {
         <Chair x={112} y={98} /><Chair x={112} y={134} />
         <path d="M176 124 H140 M152 113 L139 124 L152 135" fill="none" stroke={INK} strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" />
         <People pts={[[192, 102], [226, 112], [264, 118], [196, 138], [232, 146]]} />
-        <Plate cx={178} cy={203} lines={["Nerf Cup", "Knockdown"]} fill={color.nerf} size={22} queue={q("nerf")} />
+        <Plate cx={178} cy={203} lines={["Target Blast"]} fill={color.nerf} size={22} queue={q("nerf")} />
       </Zone>
       <Zone id="pasta" x={25} y={268} w={319} h={287} onPick={onPick}>
         <Chair x={60} y={330} /><Chair x={60} y={384} />

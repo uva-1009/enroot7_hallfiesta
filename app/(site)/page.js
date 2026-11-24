@@ -1,7 +1,9 @@
 // Intro page (/): hero, countdown, register and calendar.
 import QRCode from "qrcode";
 import HeroArt from "../HeroArt";
+import PageBg from "../PageBg";
 import EventInfo from "../EventInfo";
+import HomeMenu from "../HomeMenu";
 import { event } from "../../data/event";
 
 export default async function Intro() {
@@ -10,6 +12,7 @@ export default async function Intro() {
 
   return (
     <>
+      <PageBg kind="sunburst" />
       <section className="mx-auto grid max-w-5xl items-center gap-10 px-5 pb-14 pt-12 md:grid-cols-[1.1fr_1fr]">
         <div className="poster paper -rotate-1 p-8 text-center text-ink sm:p-10">
           <p className="font-type text-sm tracking-[.3em]">ENROOT 7 PRESENTS</p>
@@ -23,6 +26,7 @@ export default async function Intro() {
       </section>
 
       <EventInfo shareQr={shareQr} />
+      <HomeMenu />
     </>
   );
 }

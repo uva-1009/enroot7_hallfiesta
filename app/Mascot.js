@@ -2,6 +2,9 @@
 import { useEffect, useRef, useState } from "react";
 
 // Original vintage-poster clown: sailor cap, feather plume, lashes, huge grin and a ruffled collar. Eyes follow the cursor.
+// Round to 2 decimals so the server and the browser produce identical numbers (avoids hydration warnings).
+const r2 = (n) => Math.round(n * 100) / 100;
+
 export default function Mascot() {
   const ref = useRef(null);
   const [p, setP] = useState({ x: 0, y: 0 });
@@ -23,8 +26,8 @@ export default function Mascot() {
   return (
     <svg ref={ref} viewBox="0 0 240 300" className="bob w-full" role="img" aria-label="A grinning vintage clown in a sailor cap and ruffled collar, his eyes following your cursor">
       <defs><clipPath id="mouth"><path d="M64 186 Q120 206 176 186 Q170 226 120 228 Q70 226 64 186 Z" /></clipPath></defs>
-      {ts.map((t, i) => <rect key={"b" + i} x="-9" y="-12" width="18" height="24" rx="8" fill={CREAM} stroke={TEAL} strokeWidth="3" transform={`translate(${120 + 114 * Math.cos(t + 0.06)} ${204 + 84 * Math.sin(t + 0.06)}) rotate(${(t * 180) / Math.PI - 90})`} />)}
-      {ts.map((t, i) => <rect key={"a" + i} x="-12" y="-18" width="24" height="36" rx="10" fill={CREAM} stroke={INK} strokeWidth="3.5" transform={`translate(${120 + 100 * Math.cos(t)} ${200 + 72 * Math.sin(t)}) rotate(${(t * 180) / Math.PI - 90})`} />)}
+      {ts.map((t, i) => <rect key={"b" + i} x="-9" y="-12" width="18" height="24" rx="8" fill={CREAM} stroke={TEAL} strokeWidth="3" transform={`translate(${r2(120 + 114 * Math.cos(t + 0.06))} ${r2(204 + 84 * Math.sin(t + 0.06))}) rotate(${r2((t * 180) / Math.PI - 90)})`} />)}
+      {ts.map((t, i) => <rect key={"a" + i} x="-12" y="-18" width="24" height="36" rx="10" fill={CREAM} stroke={INK} strokeWidth="3.5" transform={`translate(${r2(120 + 100 * Math.cos(t))} ${r2(200 + 72 * Math.sin(t))}) rotate(${r2((t * 180) / Math.PI - 90)})`} />)}
       <path d="M38 140 C24 20 216 20 202 140 Z" fill={INK} />
       <ellipse cx="42" cy="146" rx="10" ry="19" fill={CREAM} strokeWidth="4" {...s} /><ellipse cx="198" cy="146" rx="10" ry="19" fill={CREAM} strokeWidth="4" {...s} />
       <path d="M40 142 q4 6 0 12 M200 142 q-4 6 0 12" fill="none" stroke={ORANGE} strokeWidth="3" strokeLinecap="round" />
@@ -45,7 +48,7 @@ export default function Mascot() {
         <g key={cx}>
           <ellipse cx={cx} cy="128" rx="19" ry="11" fill="#fff" strokeWidth="3" {...s} />
           <circle cx={cx + p.x} cy={128 + p.y} r="5.5" fill={INK} /><circle cx={cx + p.x - 1.6} cy={128 + p.y - 1.8} r="1.6" fill="#fff" />
-          {lashes.map((a) => { const r = (a * Math.PI) / 180; return <line key={a} x1={cx + Math.cos(r) * 18} y1={128 + Math.sin(r) * 10} x2={cx + Math.cos(r) * 26} y2={128 + Math.sin(r) * 17} stroke={INK} strokeWidth="2" strokeLinecap="round" />; })}
+          {lashes.map((a) => { const r = (a * Math.PI) / 180; return <line key={a} x1={r2(cx + Math.cos(r) * 18)} y1={r2(128 + Math.sin(r) * 10)} x2={r2(cx + Math.cos(r) * 26)} y2={r2(128 + Math.sin(r) * 17)} stroke={INK} strokeWidth="2" strokeLinecap="round" />; })}
           <path d={`M${cx - 20} 134 Q${cx} 148 ${cx + 20} 134`} fill="none" stroke={RED} strokeWidth="4" strokeLinecap="round" />
         </g>
       ))}

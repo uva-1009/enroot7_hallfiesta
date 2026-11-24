@@ -1,7 +1,6 @@
 "use client";
 // The booth pop-up: rules, tips, safety, and the stamp-code form. Used on /booths and /map.
 import { useEffect, useState } from "react";
-import Link from "next/link";
 import Scene from "./Scene";
 import { QUEUE } from "../lib/queue";
 
@@ -68,7 +67,7 @@ export default function BoothDialog({ booth: b, stamped, hasPhoto, level, onClos
               <p className="font-display text-2xl">Stamp collected!</p>
               <div className="flex flex-wrap items-center gap-3">
                 <button type="button" className="btn !py-1 text-base" onClick={() => onPhoto(b.id)}>{hasPhoto ? "Retake my photo" : "Add my photo"}</button>
-                <Link href="/reel" className="text-sm font-semibold underline">See my film strip</Link>
+                <a href="/reel" className="text-sm font-semibold underline">See my film strip</a>
               </div>
             </div>
           ) : (

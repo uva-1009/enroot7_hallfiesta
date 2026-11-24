@@ -1,6 +1,6 @@
-// The site's pages, in order. The header uses this list.
+// The site's pages, in order. The home page menu uses this list.
 export const PAGES = [
-  { href: "/", label: "Intro", blurb: "Countdown, register and add to calendar" },
+  { href: "/", label: "Home", blurb: "Countdown, register and add to calendar" },
   { href: "/booths", label: "Booths", blurb: "The three games, their rules, and where you collect stamps" },
   { href: "/map", label: "Floor map", blurb: "Where everything is in the Multi-Purpose Hall" },
   { href: "/schedule", label: "Run of show", blurb: "What happens when, from 7pm to 9pm" },

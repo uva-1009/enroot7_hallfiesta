@@ -1,13 +1,11 @@
-// Shared frame for the public pages: sunburst background and the header with page links.
+// Draft A: no shared header. The home page is the menu; every other page stands alone with a "Back to home" button.
 // (The brackets in "(site)" mean this folder doesn't appear in the URL.)
-import Sky from "../Sky";
-import SiteNav from "../SiteNav";
+import BackHome from "../BackHome";
 
 export default function SiteLayout({ children }) {
   return (
     <div className="relative">
-      <Sky />
-      <SiteNav />
+      <BackHome />
       <main className="pb-16">{children}</main>
     </div>
   );

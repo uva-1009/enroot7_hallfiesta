@@ -2,7 +2,7 @@
 // and facilitators set them on /staff, so they never appear in the public code.
 export const booths = [
   {
-    id: "nerf", name: "Nerf Cup Knockdown", tagline: "Aim, fire, dodge the barriers.",
+    id: "nerf", name: "Target Blast", tagline: "Aim, fire, dodge the barriers.",
     color: "#E0584B", tilt: -2.5, players: "Teams of 5", gear: "1 Nerf blaster per team",
     summary: "Five teammates share one blaster to bring down a whole structure of cups. Barriers stand in the way, and hitting one costs you, so every shot needs a plan, not just a trigger finger.",
     how: [
