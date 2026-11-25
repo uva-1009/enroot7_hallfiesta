@@ -155,107 +155,6 @@ vercel.json            Reminder schedule
 .env.example           Settings the server needs
 ```
 
-## Setup
-
-The public pages work on their own. Stamping, queues, `/staff` and the bot need Supabase and a few settings. Do steps 1 to 4 **before** pushing this version, or stamping will be off on the live site until they're done.
-
-### 1. Supabase (database)
-
-1. Create a free project at [supabase.com](https://supabase.com). Pick the Singapore region.
-2. Open **SQL Editor > New query**, paste all of `supabase/schema.sql`, and click **Run**.
-3. Open **Project Settings > API** (or **Data API**) and copy the **Project URL** and the **service_role** secret key.
-
-### 2. Telegram bot
-
-1. In Telegram, message **@BotFather**, send `/newbot`, choose a name and a username ending in `bot`. Copy the **token** it gives you.
-2. Still in BotFather, send `/setcommands`, choose the bot, and paste:
-   ```
-   countdown - Time until Hall Fiesta
-   queue - Live wait at each booth
-   info - Date, venue and run of show
-   feedback - Tell us how it went
-   stop - Stop reminders
-   ```
-
-### 3. Settings on Vercel
-
-In the Vercel project, open **Settings > Environment Variables** and add these for **Production**:
-
-| Name | Value |
-|---|---|
-| `SUPABASE_URL` | Project URL from step 1 |
-| `SUPABASE_SERVICE_ROLE_KEY` | service_role key from step 1 (secret) |
-| `STAFF_PIN` | A passphrase for `/staff`, longer than 4 digits |
-| `TELEGRAM_BOT_TOKEN` | Token from BotFather |
-| `TELEGRAM_WEBHOOK_SECRET` | Any long random string (letters, numbers, `-`, `_`) |
-| `NEXT_PUBLIC_BOT_USERNAME` | The bot's username, without `@` |
-| `CRON_SECRET` | Any long random string |
-
-Then push the code (or click **Redeploy**) so the new settings take effect.
-
-### 4. Connect the bot to the site
-
-Open this link in a browser once, with your token and webhook secret filled in:
-
-```
-https://api.telegram.org/bot<TOKEN>/setWebhook?url=https://enroot7-hallwars.vercel.app/api/telegram/webhook&secret_token=<TELEGRAM_WEBHOOK_SECRET>
-```
-
-It should reply `"Webhook was set"`. Then send `/start` to your bot.
-
-### 5. Before the event
-
-- Open `/staff`, enter the PIN, and **replace the three placeholder stamp codes** (`change-me-...`). Short words are easiest to say out loud, e.g. `POPCORN7`.
-- Try the full flow on a phone: register button, stamp each booth, take three photos, save the strip and the story version, `/queue` and `/feedback` in the bot.
-- Print the joint QR from `/staff` ("All links") for posters. It opens `/links`, so the QR never needs reprinting if a link changes: just edit `data/event.js`.
-
-### On the night
-
-- Each facilitator keeps `/staff` open and taps the queue buttons as lines change.
-- After the closing statement, press **Send now** on "Feedback request".
-- Feedback can be exported from Supabase: **Table Editor > feedback > Export to CSV**.
-
-## Run locally
-
-Needs Node.js 20.9 or newer.
-
-```bash
-npm install
-npm run dev     # http://localhost:3000
-npm run build   # the same check Vercel runs
-```
-
-For stamping, `/staff` and the bot locally, copy `.env.example` to `.env.local` and fill it in. The bot itself only works on the deployed site, because Telegram needs a public URL to send messages to.
-
-On Windows PowerShell, if `npm` is blocked by the execution policy, use Command Prompt or run `Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned` once.
-
-## Editing
-
-- **Event details, links, run of show, FAQ:** `data/event.js`
-- **Booth text, rules, tips, colours:** `data/booths.js`
-- **Stamp codes and queue:** `/staff` (no code change or redeploy needed)
-- **Bot wording:** `lib/bot.js`
-- **Reminder time:** `vercel.json`. The schedule is in UTC, so `0 1 26 11 *` is 9am Singapore time on 26 November.
-
-## Design
-
-The look is a vintage circus poster, built from a moodboard of old carnival signage, cinema tickets, sunburst prints and harlequin patterns.
-
-| Element | How it is done |
-|---|---|
-| Sunburst background | CSS `repeating-conic-gradient` with a dark vignette |
-| Harlequin booth section | Tiled SVG in `public/harlequin.svg` |
-| Aged paper and print specks | SVG turbulence textures in `public/paper.svg` and `public/grunge.svg` |
-| Ticket cards | CSS masks for the punched notches, dashed perforation line |
-| Marquee bulbs and countdown | Radial-gradient dots with a stepped twinkle animation |
-| Floor map | Hand-written SVG from the team's floor-plan sketch |
-| Booth animations | Hand-written SVG scenes driven by CSS keyframes (no animation library) |
-| Mascot and hero art | Hand-written SVG, drawn in code |
-| Film strip and story | Drawn on a `<canvas>`, so the page and the saved images are the same drawing |
-
-**Palette:** brick red `#B3202A`, mustard `#E3A93B`, teal `#4F9D96`, cream `#F4E8C8`, warm black `#231815`, slate blue `#2C4A68`, rust `#7A3418`.
-
-**Type:** Rye (titles), Alfa Slab One (labels and numbers), Special Elite (ticket-style small print), Archivo (body), loaded with `next/font/google`.
 
 ## Responsive behaviour
 
@@ -293,11 +192,12 @@ Before release, every API route and the whole bot conversation were run against 
 7. **Deploy.** GitHub repo, Vercel deployment.
 8. **Event features.** Added the countdown, calendar, directions, floor map from the team's sketch, run of show and FAQ. A single "link tree" QR (`/links`) replaced separate QR codes for the form and the site. The floor map was redrawn when the hall layout changed.
 9. **Separate pages.** Split the single long page into six pages (intro, booths, floor map, run of show, FAQ, film strip), each a completely separate page with its own background. The home page acts as the menu, and every page has a "Back to home" button. Links are plain page loads rather than in-app navigation, so each click opens a new page.
-10. **Backend and bot.** Moved stamp codes to Supabase, added the facilitator page and live queue times, built the Telegram bot with reminders and feedback, and the Instagram story export. Upgraded to Next.js 16 for security fixes.
+10. **Change of look.** Decided to match the theme of the poster, keeping the functioning of the website unchanged.
+11. **Backend and bot.** Moved stamp codes to Supabase, added the facilitator page and live queue times, built the Telegram bot with reminders and feedback, and the Instagram story export. Upgraded to Next.js 16 for security fixes.
 
 ### AI usage
 
-The site was built with AI assistance (Claude) for code generation, then directed and revised over several rounds. The event, booth rules, floor plan, scope, visual direction and reference images, the photo-strip idea and the decision to collect feedback through the bot came from the team. Each generated version was reviewed, rejected or reshaped against those.
+The site was built with AI assistance (Claude) for code generation, then directed and revised over several rounds. The event, booth rules, floor plan, scope, visual direction and reference images, the photo-strip idea and the decision to collect feedback through the bot came from the team. Each generated version was reviewed, rejected and reshaped against those.
 
 <!-- TODO: list the parts you wrote or changed by hand, e.g. copy, colours, codes, layout tweaks -->
 
