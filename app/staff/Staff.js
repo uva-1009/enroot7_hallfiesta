@@ -18,7 +18,7 @@ function download(svg, name) {
 
 function Panel({ title, children, className = "" }) {
   return (
-    <section className={`rounded-[1.25rem] border-4 border-ink bg-bone p-5 text-ink shadow-[6px_6px_0_#231815] ${className}`}>
+    <section className={`rounded-[1.25rem] border-4 border-ink bg-bone p-5 text-ink shadow-[6px_6px_0_#1E2350] ${className}`}>
       <h2 className="font-display text-2xl">{title}</h2>
       <div className="mt-4">{children}</div>
     </section>
@@ -31,7 +31,7 @@ function BoothCard({ row, call, busy }) {
   const [code, setCode] = useState("");
   const placeholder = row.code.startsWith("change-me");
   return (
-    <div className="rounded-[1.25rem] border-4 border-ink p-5 text-ink shadow-[6px_6px_0_#231815]" style={{ backgroundColor: color[row.id] }}>
+    <div className="rounded-[1.25rem] border-4 border-ink p-5 text-ink shadow-[6px_6px_0_#1E2350]" style={{ backgroundColor: color[row.id] }}>
       <h2 className="font-display text-2xl leading-tight">{b?.name ?? row.name}</h2>
 
       <p className="mt-4 font-type text-sm">Stamp code</p>
@@ -53,7 +53,7 @@ function BoothCard({ row, call, busy }) {
           const on = row.queue === lvl;
           return (
             <button key={lvl} disabled={busy} aria-pressed={on} onClick={() => call({ action: "queue", booth: row.id, level: lvl })}
-              className={`rounded-lg border-[3px] border-ink px-2 py-2 font-slab text-sm transition ${on ? "shadow-[3px_3px_0_#231815]" : "bg-bone/80 hover:bg-bone"}`}
+              className={`rounded-lg border-[3px] border-ink px-2 py-2 font-slab text-sm transition ${on ? "shadow-[3px_3px_0_#1E2350]" : "bg-bone/80 hover:bg-bone"}`}
               style={on ? { backgroundColor: QUEUE[lvl].color, color: QUEUE[lvl].text } : undefined}>
               {QUEUE[lvl].label}
             </button>
@@ -136,12 +136,15 @@ export default function Staff({ linksQr, siteQr, registerQr }) {
 
   return (
     <main className="mx-auto max-w-6xl px-4 pb-16">
-      <header className="sticky top-0 z-10 -mx-4 mb-6 flex items-center justify-between bg-ink px-4 py-3 text-bone">
-        <h1 className="font-display text-xl text-mustard sm:text-2xl">Facilitator desk</h1>
+      <header className="sticky top-0 z-10 -mx-4 mb-8 bg-ink text-bone">
+        <div className="flex items-center justify-between px-4 py-3">
+        <h1 className="font-display text-xl sm:text-2xl"><span className="text-white">Hall </span><span className="text-lav">Fiesta</span> <span className="text-mustard">/ Facilitator desk</span></h1>
         <div className="flex items-center gap-4 text-sm">
           <a href="/" className="underline">Public site</a>
           <button className="underline" onClick={() => { setPin(""); setData(null); try { sessionStorage.removeItem(PIN_KEY); } catch {} }}>Lock</button>
         </div>
+        </div>
+        <div className="bunting" />
       </header>
 
       {err && <p role="alert" className="mb-4 rounded-lg border-4 border-ink bg-mustard p-3 font-semibold text-ink">{err}</p>}

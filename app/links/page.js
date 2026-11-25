@@ -1,6 +1,6 @@
 // /links: the page the poster QR code opens. One scan, every link.
 import Sky from "../Sky";
-import Mascot from "../Mascot";
+import Bunting from "../Bunting";
 import { event } from "../../data/event";
 import { googleCalUrl } from "../../lib/calendar";
 
@@ -14,7 +14,7 @@ const BOT = process.env.NEXT_PUBLIC_BOT_USERNAME || "";
 function LinkButton({ href, title, sub, primary, external = true }) {
   return (
     <a href={href} {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-      className={`block rounded-2xl border-4 border-ink px-5 py-4 text-ink shadow-[5px_5px_0_#231815] transition hover:-translate-y-0.5 active:translate-x-[3px] active:translate-y-[3px] active:shadow-[1px_1px_0_#231815] ${primary ? "bg-mustard" : "bg-bone"}`}>
+      className={`block rounded-2xl border-[3px] border-ink px-5 py-4 shadow-[0_5px_0_#1E2350] transition hover:-translate-y-0.5 active:translate-y-[3px] active:shadow-[0_2px_0_#1E2350] ${primary ? "bg-bubble text-white" : "bg-bone text-ink"}`}>
       <span className="block font-display text-xl leading-tight">{title}</span>
       <span className="mt-0.5 block text-sm">{sub}</span>
     </a>
@@ -23,16 +23,23 @@ function LinkButton({ href, title, sub, primary, external = true }) {
 
 export default function Links() {
   return (
-    <main className="relative min-h-screen px-5 py-10">
+    <main className="relative min-h-screen px-5 pb-10 pt-28">
       <Sky />
-      <div className="poster paper mx-auto max-w-md px-6 pb-8 pt-6 text-center text-ink sm:px-8">
-        <div className="mx-auto w-32"><Mascot /></div>
-        <p className="font-type text-sm tracking-[.3em]">{event.presenter.toUpperCase()} PRESENTS</p>
-        <h1 className="titleprint mt-1 font-display text-5xl leading-none">{event.name}</h1>
-        <p className="mt-3 font-slab">{event.shortDate.toUpperCase()} / 7PM TO 9PM</p>
-        <p className="font-type text-sm">{event.venue}, {event.venueDetail}</p>
-
-        <nav className="mt-7 space-y-4 text-left" aria-label="Hall Fiesta links">
+      <Bunting />
+      <header className="mx-auto max-w-md text-center">
+        <h1 className="font-display text-7xl leading-[.86]">
+          <span className="block -rotate-2 text-white [text-shadow:0_5px_0_#1E2350]">Hall</span>
+          <span className="block rotate-1 text-lav [text-shadow:0_5px_0_#1E2350]">Fiesta</span>
+        </h1>
+        <p className="mt-5 flex flex-wrap items-center justify-center gap-x-3 gap-y-1 font-display text-white">
+          <span className="text-3xl">26</span>
+          <span className="rounded-lg bg-purple px-2.5 py-0.5 text-2xl shadow-[0_4px_0_#1E2350]">Nov</span>
+          <span className="text-xl">@MPH 7-9pm</span>
+        </p>
+        <p className="mt-1 text-sm text-bone/80">{event.venue}, {event.venueDetail}</p>
+      </header>
+      <div className="poster mx-auto mt-8 max-w-md px-6 pb-8 pt-6 text-center text-ink sm:px-8">
+        <nav className="space-y-4 text-left" aria-label="Hall Fiesta links">
           <LinkButton primary href={event.registerUrl} title="Register" sub="Sign up for Hall Fiesta (registration form)" />
           <LinkButton href="/" external={false} title="Event site" sub="Countdown, booths, floor map, run of show and FAQ" />
           <LinkButton href="/booths" external={false} title="Booths and stamps" sub="The three games and where you collect stamps" />
