@@ -3,7 +3,7 @@
 Event site and Telegram bot for **Hall Fiesta**, the EnROOT 7 carnival for SUTD Term 1 freshmen. Teams play three booths, collect a stamp at each, fill a photo film strip, and earn a badge plus an extra drink. A companion Telegram bot sends reminders, shows live queue times on the night, and collects feedback afterwards.
 
 **Live site:** https://enroot7-hallwars.vercel.app
-**Repo:** https://github.com/uva1009/enroot7_hallwars
+**Telegram Bot:** https://t.me/hallfiesta_bot
 
 <!-- TODO: add team name / group number and members -->
 
@@ -90,7 +90,7 @@ Protected by a PIN. Built for a phone held at a booth:
 | `/stop` | Unsubscribes from reminders |
 
 - **Reminder:** at about 9am on 26 November, a scheduled job sends "Hall Fiesta is tonight!" to everyone who started the bot.
-- **Feedback request:** sent from `/staff` after the closing statement. The site's "Give feedback" button opens the bot with the questions already started (`t.me/<bot>?start=feedback`), so people who never opened the bot can still answer.
+- **Feedback request:** sent from `/staff` after the closing statement. The site's "Give feedback" button opens the bot with the questions already started, so people who never opened the bot can still answer.
 - **Privacy:** feedback answers are stored without a name or Telegram ID. The subscriber list only holds the chat ID and first name needed to send reminders, and `/stop` deletes it.
 
 ## How it fits together
