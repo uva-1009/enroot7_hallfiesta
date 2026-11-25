@@ -35,7 +35,7 @@ EnROOT 7: Members
 |---|---|
 | 6:30pm | Registration and team assembly |
 | 7:10pm | Opening by Area Management |
-| 7:15pm | Safety briefing (required) |
+| 7:15pm | Safety briefing |
 | 7:25pm | Booths open |
 | 8:55pm | Closing statement |
 | 9:00pm | End, venue clear-out |
