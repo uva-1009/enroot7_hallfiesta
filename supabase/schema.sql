@@ -50,3 +50,8 @@ alter table booths      enable row level security;
 alter table subscribers enable row level security;
 alter table feedback    enable row level security;
 alter table broadcasts  enable row level security;
+
+-- Let the server's secret key (service_role) use these tables.
+grant usage on schema public to service_role;
+grant all on table public.booths, public.subscribers, public.feedback, public.broadcasts to service_role;
+grant usage, select on all sequences in schema public to service_role;
