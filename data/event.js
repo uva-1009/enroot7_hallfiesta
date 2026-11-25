@@ -20,8 +20,8 @@ export const event = {
   mapsUrl: "https://www.google.com/maps/search/?api=1&query=SUTD%20Block%2057",
 
   registerUrl: "https://forms.cloud.microsoft/r/QVYTbNSmmn",
-  siteUrl: "https://enroot7-hallwars.vercel.app",
-  linksUrl: "https://enroot7-hallwars.vercel.app/links", // the one QR on posters points here
+  siteUrl: "https://enroot7-hallfiesta.vercel.app",
+  linksUrl: "https://enroot7-hallfiesta.vercel.app/links", // the one QR on posters points here
 
   schedule: [
     { time: "6:30pm", title: "Registration and team assembly", detail: "Check in at the registration table and get into your team of five." },
