@@ -80,8 +80,8 @@ export default function FilmStrip() {
             {done ? (
               <>
                 <svg viewBox="0 0 200 200" className="mx-auto w-44" role="img" aria-label="Hall Fiesta Legend badge">
-                  <polygon className="spin-slow" points="100,4 118,32 150,18 154,52 188,56 172,88 198,110 168,128 178,162 144,162 132,194 104,174 74,196 62,164 28,168 38,134 6,114 34,92 18,60 52,56 56,24 86,34" fill="#E3A93B" stroke="#231815" strokeWidth="5" strokeLinejoin="round" />
-                  <circle cx="100" cy="100" r="56" fill="#B3202A" stroke="#231815" strokeWidth="5" />
+                  <polygon className="spin-slow" points="100,4 118,32 150,18 154,52 188,56 172,88 198,110 168,128 178,162 144,162 132,194 104,174 74,196 62,164 28,168 38,134 6,114 34,92 18,60 52,56 56,24 86,34" fill="#E3A93B" stroke="#1E2350" strokeWidth="5" strokeLinejoin="round" />
+                  <circle cx="100" cy="100" r="56" fill="#B3202A" stroke="#1E2350" strokeWidth="5" />
                   <text x="100" y="92" textAnchor="middle" fontSize="17" textLength="92" lengthAdjust="spacingAndGlyphs" fill="#F4E8C8" style={{ fontFamily: "var(--font-display)" }}>HALL FIESTA</text>
                   <text x="100" y="118" textAnchor="middle" fontSize="20" fill="#F4E8C8" style={{ fontFamily: "var(--font-display)" }}>LEGEND</text>
                 </svg>

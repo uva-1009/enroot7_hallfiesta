@@ -3,7 +3,7 @@ import { booths } from "../data/booths";
 import { QUEUE } from "../lib/queue";
 
 // Multi-Purpose Hall, drawn from the team's floor-plan sketch (updated 18 Nov). Units are arbitrary (viewBox 1000 x 650).
-const INK = "#231815", CREAM = "#F4E8C8", WOOD = "#C98F55", DARKWOOD = "#8F5A2B";
+const INK = "#1E2350", CREAM = "#F4E8C8", WOOD = "#C98F55", DARKWOOD = "#8F5A2B";
 const color = Object.fromEntries(booths.map((b) => [b.id, b.color]));
 
 const Table = ({ x, y, w, h }) => <rect x={x} y={y} width={w} height={h} rx="3" fill={WOOD} stroke={INK} strokeWidth="3" />;
@@ -86,7 +86,7 @@ export default function FloorMap({ onPick, queue = {}, showQueue = false }) {
         <Chair x={112} y={98} /><Chair x={112} y={134} />
         <path d="M176 124 H140 M152 113 L139 124 L152 135" fill="none" stroke={INK} strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" />
         <People pts={[[192, 102], [226, 112], [264, 118], [196, 138], [232, 146]]} />
-        <Plate cx={178} cy={203} lines={["Target Blast"]} fill={color.nerf} size={22} queue={q("nerf")} />
+        <Plate cx={178} cy={203} lines={["Target", "Blast"]} fill={color.nerf} size={24} queue={q("nerf")} />
       </Zone>
       <Zone id="pasta" x={25} y={268} w={319} h={287} onPick={onPick}>
         <Chair x={60} y={330} /><Chair x={60} y={384} />

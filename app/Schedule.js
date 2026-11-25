@@ -27,8 +27,8 @@ export function Faq() {
       <h1 className="label text-3xl sm:text-4xl">Questions</h1>
       <div className="mt-8 space-y-3">
         {event.faq.map((f) => (
-          <details key={f.q} className="faq group rounded-xl border-4 border-ink bg-bone text-ink shadow-[5px_5px_0_#231815]">
-            <summary className="flex cursor-pointer list-none items-center justify-between gap-4 p-4 font-display text-lg leading-tight sm:text-xl">
+          <details key={f.q} className="faq group rounded-xl border-4 border-ink bg-bone text-ink shadow-[5px_5px_0_#1E2350]">
+            <summary className="flex cursor-pointer list-none items-center justify-between gap-4 p-4 text-lg font-bold leading-tight sm:text-xl">
               {f.q}
               <span aria-hidden="true" className="grid h-8 w-8 shrink-0 place-items-center rounded-full border-[3px] border-ink bg-mustard font-slab text-lg transition group-open:rotate-45">+</span>
             </summary>

@@ -1,5 +1,5 @@
 // Looping SVG animations of each booth. Timings live in globals.css.
-const INK = "#231815", BONE = "#F4E8C8", PASTA = "#E8C26A";
+const INK = "#1E2350", BONE = "#F4E8C8", PASTA = "#E8C26A";
 const Frame = ({ label, children }) => (
   <svg viewBox="0 0 320 200" className="h-auto w-full rounded-xl border-4 border-ink" role="img" aria-label={label}>
     <defs><linearGradient id="gr" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stopColor="#C98F55" /><stop offset="1" stopColor="#80522A" /></linearGradient></defs>

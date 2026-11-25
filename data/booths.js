@@ -3,7 +3,7 @@
 export const booths = [
   {
     id: "nerf", name: "Target Blast", tagline: "Aim, fire, dodge the barriers.",
-    color: "#E0584B", tilt: -2.5, players: "Teams of 5", gear: "1 Nerf blaster per team",
+    color: "#E0453A", tilt: -2.5, players: "Teams of 5", gear: "1 Nerf blaster per team",
     summary: "Five teammates share one blaster to bring down a whole structure of cups. Barriers stand in the way, and hitting one costs you, so every shot needs a plan, not just a trigger finger.",
     how: [
       "Your team of 5 lines up behind the firing line and receives one Nerf blaster.",
@@ -17,7 +17,7 @@ export const booths = [
   },
   {
     id: "pasta", name: "Pasta Tower Challenge", tagline: "Spaghetti. Tape. Gravity.",
-    color: "#6FB3AC", tilt: 1.5, players: "2 teams face off", gear: "Raw pasta + limited tape",
+    color: "#1FA1B3", tilt: 1.5, players: "2 teams face off", gear: "Raw pasta + limited tape",
     summary: "Two teams go head to head, racing the clock to build the tallest freestanding tower from raw pasta and a little tape. Everyone earns a stamp, and the winning team takes snacks too.",
     how: [
       "Two teams face each other, each with the same pile of raw pasta and a limited amount of tape.",
@@ -30,7 +30,7 @@ export const booths = [
   },
   {
     id: "ball", name: "Ball Transfer", tagline: "Get it across. Don't hold it.",
-    color: "#E8B04A", tilt: -1.5, players: "Whole team", gear: "Cups, paper, cardboard, string",
+    color: "#F39B2E", tilt: -1.5, players: "Whole team", gear: "Cups, paper, cardboard, string",
     summary: "Move a ball from the start line to the end without carrying it. The twist: it can't stay on any one surface, tool or person for more than 3 to 4 seconds, so your team has to keep it moving.",
     how: [
       "Collect materials from the materials table: cups, paper, cardboard and string.",
