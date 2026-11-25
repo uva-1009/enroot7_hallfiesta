@@ -7,15 +7,25 @@ Event site and Telegram bot for **Hall Fiesta**, the EnROOT 7 carnival for SUTD 
 
 <!-- TODO: add team name / group number and members -->
 
+EnROOT 7: Members
+1. Abhinaya Uppili Vimala
+2. Lim We
+3. Baddipadige Ashrita
+4. Phan Bao Ngoc
+5. Poh Jia Le Gabriel
+6. Chee Jun Hao
+7. Jerome Axel Calderon Mateo
+8. Mohamed Rasheed Muhammed Suhail
+
 ## The event
 
 | | |
 |---|---|
 | Event | Hall Fiesta, an indoor carnival of game booths |
 | Theme | Stress relieving / low cortisol |
-| When | Thursday 26 November 2026, 7pm to 9pm |
-| Where | Multi-Purpose Hall, Block 57, Level 2 |
-| Who | Term 1 freshmen, about 200 to 300 people |
+| Date and Time | Thursday 26 November 2026, 7pm to 9pm |
+| Venue | Multi-Purpose Hall, Block 57, Level 2 |
+| Audience | Term 1 freshmen, about 200 to 300 people |
 | Register | https://forms.cloud.microsoft/r/QVYTbNSmmn |
 | Rewards | A stamp per booth; all 3 stamps earn the badge and an extra drink |
 
@@ -23,7 +33,7 @@ Event site and Telegram bot for **Hall Fiesta**, the EnROOT 7 carnival for SUTD 
 
 | Time | |
 |---|---|
-| 7:00pm | Registration and team assembly |
+| 6:30pm | Registration and team assembly |
 | 7:10pm | Opening by Area Management |
 | 7:15pm | Safety briefing (required) |
 | 7:25pm | Booths open |
@@ -32,7 +42,7 @@ Event site and Telegram bot for **Hall Fiesta**, the EnROOT 7 carnival for SUTD 
 
 ### The booths
 
-**1. Nerf Cup Knockdown.** Squads of five share one Nerf blaster to knock down a cup structure. Barriers stand in the way, and hitting one is a penalty. Safety rules are shown inside the booth card.
+**1. Target Blast.** Squads of five share one Nerf blaster to knock down a cup structure. Barriers stand in the way, and hitting one is a penalty. Safety rules are shown inside the booth card.
 
 **2. Pasta Tower Challenge.** Two teams race the clock to build the tallest freestanding tower from raw pasta and limited tape. Both teams get a stamp; the winners also get snacks.
 
@@ -42,7 +52,7 @@ Event site and Telegram bot for **Hall Fiesta**, the EnROOT 7 carnival for SUTD 
 
 ### Website
 
-The site is six separate pages. The home page is the menu: it has the countdown and registration, then a "Step inside" list of big buttons, one per page. Each button loads a completely new page with its own background (harlequin, blueprint, curtain, polka dots or cinema) and only that page's content. There is no shared menu bar; each page has a "Back to home" button and the stamp count at the top.
+The site is six separate pages. The home page is the menu: it has the countdown and registration, then a "Step inside" list of big buttons, one per page. 
 
 | Page | What's on it |
 |---|---|
